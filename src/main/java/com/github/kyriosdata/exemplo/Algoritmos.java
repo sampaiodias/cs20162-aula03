@@ -190,7 +190,7 @@ public final class Algoritmos {
         float r = 1;
         int repeticoes = i;
 
-        if (0 > n) {
+        if (0 < n) {
             while (0 <= repeticoes) {
                 r = (r + n / r) / 2;
                 repeticoes--;
@@ -228,5 +228,26 @@ public final class Algoritmos {
         }
 
         return c;
+    }
+    /**
+     * Conjunto de números para a avaliação de polinômio pela Regra de Horner.
+     * @param x valor base
+     * @param g índice do último número de ag
+     * @param ag conjunto de números
+     * @return 
+     */
+    public static float[] horner(final int x, final int g, final float[] ag){
+        float p = ag[g];
+        int i = g - 1;
+        
+        if (1 <= g) {
+            while(0 <= i){
+                p = p * x + ag[i];
+                i--;
+            }
+        } else {
+            throw new IllegalArgumentException("Erro: n < 0");
+        }
+        return ag;
     }
 }
