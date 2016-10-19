@@ -15,6 +15,7 @@ public final class Algoritmos {
     private Algoritmos() {
 
     }
+
     /**
      * Um somatório envolvendo os primeiros números naturais.
      *
@@ -229,19 +230,21 @@ public final class Algoritmos {
 
         return c;
     }
+
     /**
      * Conjunto de números para a avaliação de polinômio pela Regra de Horner.
+     *
      * @param x valor base
      * @param g índice do último número de ag
      * @param ag conjunto de números
-     * @return 
+     * @return conjunto de números do polinômio
      */
-    public static float[] horner(final int x, final int g, final float[] ag){
+    public static float[] horner(final int x, final int g, final float[] ag) {
         float p = ag[g];
         int i = g - 1;
-        
+
         if (1 <= g) {
-            while(0 <= i){
+            while (0 <= i) {
                 p = p * x + ag[i];
                 i--;
             }

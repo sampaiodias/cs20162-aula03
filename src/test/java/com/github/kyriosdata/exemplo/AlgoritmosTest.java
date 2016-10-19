@@ -2,6 +2,7 @@ package com.github.kyriosdata.exemplo;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import static org.junit.Assert.*;
 import com.github.kyriosdata.exemplo.Algoritmos;
 
 /*
@@ -76,59 +77,82 @@ public class AlgoritmosTest {
     public void Teste12RazaoAureaErroKMenorQue1() {
         assertEquals(1, Algoritmos.razaoAurea(3, 2, 0), 1);
     }
-    
+
     @Test
     public void Teste13QuadradoPerfeito9() {
         assertEquals(true, Algoritmos.quadradoPerfeito(9));
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
     public void Teste14QuadradoPerfeitoErroKMenorQue1() {
         assertEquals(true, Algoritmos.quadradoPerfeito(0));
     }
-    
+
     @Test
     public void Teste15QuadradoPerfeito8() {
         assertEquals(false, Algoritmos.quadradoPerfeito(8));
     }
-    
+
     @Test
     public void Teste16Mod3() {
         assertEquals(1, Algoritmos.mod(3, 2));
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
     public void Teste17ModXMenorQue0() {
         assertEquals(1, Algoritmos.mod(-1, 2));
     }
-    
+
     @Test
     public void Teste18Raiz9() {
         assertEquals(3, Algoritmos.raiz(9, 10), 0.1f);
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
     public void Teste19RaizNMenorQue1() {
         assertEquals(3, Algoritmos.raiz(0, 10), 0.1f);
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
     public void Teste20FibonacciNMenorQue0() {
         assertEquals(3, Algoritmos.fibonacci(-1));
     }
-    
+
     @Test
     public void Teste21Fibonacci7() {
         assertEquals(13, Algoritmos.fibonacci(7));
     }
-    
+
     @Test
     public void Teste22Fibonacci0() {
         assertEquals(0, Algoritmos.fibonacci(0));
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
     public void Teste23HornerErroGMenorQue1() {
         assertEquals(1, Algoritmos.horner(0, 0, new float[1]));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void Teste24HornerErro() {
+        assertEquals(1, Algoritmos.horner(0, 0, new float[1]));
+    }
+
+    @Test
+    public void Teste25Horner2() {
+        float[] ag = new float[2];
+        ag[0] = 1;
+        ag[1] = 2;
+        assertArrayEquals(ag, Algoritmos.horner(2, 1, ag), 0);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void Teste26RazaoAureaErroXMenorQue0() {
+        assertEquals(1, Algoritmos.razaoAurea(-1, 2, 3), 1);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void Teste27ModYMenorQue0() {
+        assertEquals(1, Algoritmos.mod(1, -2));
     }
 }
